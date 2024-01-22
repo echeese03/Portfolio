@@ -16,7 +16,11 @@
 </head>
 
 <body>
-
+    <div class="bg"></div>
+    <div class="scrollbar scrollbar-primary">
+        <div class="force-overflow"></div>
+    </div>
+    <button class="darkModeButton" onclick="darkModeToggle()"><i id="darkModeIcon" class="bi bi-moon-fill"></i></button>
     <!-- this is where my code is-->
     <div id="grid">
         <div id="left-column" class="scroll">
@@ -30,11 +34,119 @@
             </div>
             <hr class="title-spacer">
             <div class="container about">
-                <div class="item title"><i>cellist and engineering student  </i><button class="darkModeButton" onclick="darkModeToggle()"><i id="darkModeIcon"
-                    class="bi bi-moon-fill"></i></button></div>
-            </div>
-            <div class="container projects">
                 <div class="item">
+                    <img class="headshot" src="media/me/Headshot.jpg">
+                </div>
+                <div class="item title">
+                    cellist and engineer
+                    
+                    <div class="item subtitle">
+                        <i>studying at Johns Hopkins University</i>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="spacer">
+
+            <div class="container projects">
+                <div class="row">
+                    <div class="item title">
+                        projects
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 grid-item">
+                        <a href="pages/TML.html"><img src="media/TML/TurboGrid.png" alt="Turbopump Design"></a>
+                        <div class="overlay">
+                            <div class="item dark-title">
+                                <i>Turbomachinery Research</i>
+                            </div>
+                        </div>
+                        <div class="info">
+                            asdkjasdkjsahdk
+                        </div>
+                    </div>
+                    <div class="col-md-4 grid-item">
+                        <a href="pages/spider.html"><img src="media/Spider/Robot.jpg" alt="Spider Robot"></a>
+                        <div class="overlay">
+                            <div class="item dark-title">
+                                <i>Spider Robot Research</i>
+                            </div>
+                        </div>
+                        <div class="info">
+                            asdkjasdkjsahdk
+                        </div>
+                    </div>
+                    <div class="col-md-4 grid-item">
+                        <a href="equalizer.html"><img src="media/Equalizer/Circuit.jpg" alt="Three-band Equalizer"></a>
+                        <div class="overlay">
+                            <div class="item dark-title">
+                                <i>Three-band Equalizer</i>
+                            </div>
+                        </div>
+                        <div class="info">
+                            asdkjasdkjsahdk
+                        </div>
+                    </div>
+                    </div>
+                
+                    <div class="row">
+                    <div class="col-md-4 grid-item">
+                        <a href="vacuum.html"><img src="media/Vacuum/Vacuum.png" alt="Reverse Engineering a Vacuum Cleaner"></a>
+                        <div class="overlay">
+                            <div class="item dark-title">
+                                <i>Reverse Engineering a Vacuum Cleaner</i>
+                            </div>
+                        </div>
+                        <div class="info">
+                            asdkjasdkjsahdk
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 grid-item">
+                        <a href="cable.html"><img src="media/Cable/Robot0.png" alt="Cable Robot Research"></a>
+                        <div class="overlay">
+                            <div class="item dark-title">
+                                <i>Prototyping a Cable Robot</i>
+                            </div>
+                        </div>
+                        <div class="info">
+                            asdkjasdkjsahdk
+                        </div>
+                    </div>
+                    <div class="col-md-4 grid-item">
+                        <a href="cubesat.html"><img src="media/MEI/CubeSat.JPG" alt="CubeSat"></a>
+                        <div class="overlay">
+                            <div class="item dark-title">
+                                <i>Launch of Crosslinked CubeSat Pair</i>
+                            </div>
+                        </div>
+                        <div class="info">
+                            asdkjasdkjsahdk
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box" id="infoBox"></div>
+                <script>
+                    $(document).ready(function() {
+                        $('.grid-item').hover(
+                            function() {
+                            var linkText = $(this).find('.info').text();
+                            $('#infoBox').text(linkText).show();
+                            },
+                            function() {
+                            $('#infoBox').hide();
+                            }
+                        );
+                
+                        $('.grid-item').mousemove(function(e) {
+                            var mouseX = e.pageX + 10;
+                            var mouseY = e.pageY + 10;
+                            $('#infoBox').css({ top: mouseY, left: mouseX });
+                        });
+                    });
+                </script>
+                <!-- <div class="item">
                     <div class="title"><a href="asciitown/exterior-ethanoh.html">ASCII Town</a></div>
                 </div>
                 <div class="item">
@@ -45,11 +157,29 @@
                 </div>
                 <div class="item">
                     <div class="title"><a href="https://afterneworder.com/whatsinmybag/ethan/index.html">What's In My Bag</a></div>
-                </div>
+                </div> -->
                 
             </div>
         </div>
     </div>
+    <hr class="spacer">
 </body>
+
+<footer>
+    <div class="row">
+      <div>Made with HTML/CSS/JavaScript</div>
+    </div>
+    <div class="row">
+      <div>
+        <a href="mailto:eoh18@jhu.edu"><i class="bi bi-envelope footer-icon"></i></a>
+        <a href="https://github.com/echeese03"><i class="bi bi-github footer-icon"></i></a>
+        <a href="https://www.linkedin.com/in/ethan-oh/"><i class="bi bi-linkedin footer-icon"></i></a>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div>Ethan Oh © 2024</div>
+    </div>
+</footer>
 
 </html>

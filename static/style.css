@@ -1,22 +1,105 @@
 :root {
     --darkmode: 'true';
-    --color1: #F0EB8D;
-    --color2: #2D2727;
-    --color3: #413543;
-    --color4: #8F43EE;
+    --color1: 240,235,141;
+    --color2: 45,39,39;
+    --color3: 65,53,67;
+    --color4: 143,67,238;
     --fill: var(--color4);
 }
+
+.bg {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: absolute;
+    z-index: -1;
+    background-size: 300% 300%;
+    background-image: linear-gradient(-45deg, rgba(var(--color1),0.3) 0%, rgba(var(--color3),0.3) 51%, rgba(var(--color4),0.3) 100%);
+    -webkit-animation: AnimateBG 20s ease infinite;
+            animation: AnimateBG 20s ease infinite;
+}
+  
+@-webkit-keyframes AnimateBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
+  
+@keyframes AnimateBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
+
+html::-webkit-scrollbar {
+    width: 10px;
+  }
+
+html::-webkit-scrollbar-track {
+    display: none;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: rgb(var(--color3));
+    border-radius: 10px;
+    transition: 0.2s ease;
+  }
+
+html::-webkit-scrollbar-thumb:hover {
+    background: rgba(var(--color3), 0.7);
+    border-radius: 10px;
+  }
+
+html::-webkit-scrollbar-thumb:active {
+    background: rgba(var(--color3), 0.5);
+    border-radius: 10px;
+  }
 
 body {
     transition: all 0.2s ease;
     font-family: 'Montserrat';
-    background-color: var(--color2);
-    color: var(--color1);
+    background-color: rgb(var(--color2));
+    color: rgb(var(--color1));
     margin: 40px;
+    margin-top: 10px;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
-a {
-    color: var(--color4)
+.link {
+    color: rgb(var(--color4));
+    transition: filter 0.2s ease;
+}
+
+.link:hover {
+    filter: brightness(1.5) drop-shadow(0px 0px 8px rgb(var(--fill)));
+}
+
+.headshot {
+    width: 20vw; 
+    height: auto; 
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+    padding-top: 10px;   
+    padding-bottom: 6px;
+}
+
+.headshot:hover {
+    transform: scale(1.05);
 }
 
 .center-title {
@@ -25,17 +108,29 @@ a {
     height: auto;
     transition: filter 0.5s ease;
     text-align: center;
+    padding-top: 20px;
 }
 
 .center-title:hover {
-    filter: drop-shadow(0px 0px 10px var(--color1)) brightness(1.2);
+    filter: drop-shadow(0px 0px 10px rgb(var(--color1))) brightness(1.2);
 }
 
 .title-spacer {
     width: 90vw;
-    text-align: center;
-    background: var(--color1);
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background: rgb(var(--color1));
     height: 5px;
+}
+
+.spacer {
+    width: 30vw;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background: rgb(var(--color1));
+    height: 2px;
 }
 
 .container {
@@ -43,29 +138,125 @@ a {
     flex-flow: column wrap;
     align-content: space-around;
     gap: 15px;
+    text-align: center;
 }
 
 .item {
-
+    
 }
 
 .title {
     font-size: 20pt;
 }
+.subtitle {
+    padding-top: 2px;
+    font-size: 12pt;
+}
+
+.dark-title {
+    font-size: 2.25vw;
+    color: rgb(var(--color2));
+    padding: 20px;
+}
 
 .bi-moon-fill {
-    color: var(--fill);
+    color: rgb(var(--fill));
 }
 
 .darkModeButton {
     width: auto;
     height: auto;
     border-radius: 50%;
-    border: 1px var(--color3);
+    border: 1px rgb(var(--color3));
     background-color: transparent;
     transition: filter 0.2s ease;
+    position: fixed;
+    z-index: 10;
+    font-size: 20pt;
+    right: 10px;
+    top: 10px;
 }
 
 .darkModeButton:hover {
-    filter: brightness(1.5) drop-shadow(0px 0px 8px var(--fill));
+    filter: brightness(1.5) drop-shadow(0px 0px 8px rgb(var(--fill)));
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    align-items: center;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.2s ease;
+    border-radius: 15px;
+}
+
+.grid-item:hover img {
+    transform: scale(1.2);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    background: rgba(var(--color1), 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    pointer-events: none
+}
+
+.grid-item:hover .overlay {
+    opacity: 1;
+}
+
+.info-box {
+    position: absolute;
+    display: none;
+    background: rgba(var(--color3), 0.8);
+    color: rgb(var(--color1));
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.info {
+    display: none;
+}
+
+footer {
+    color: rgb(var(--color1));
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    font-size: 14px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.footer-icon {
+    font-size: 24px;
+    color: rgb(var(--color1));
+    transition: filter 0.2s ease;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.footer-icon:hover {
+    filter: brightness(1.5) drop-shadow(0px 0px 8px rgb(var(--color1)));
 }

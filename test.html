@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: black; /* Set your page background color */
+    }
+
+    .bubble-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .bubble {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.8); /* Set bubble background color and opacity */
+      border-radius: 50%;
+      filter: blur(10px); /* Set the blur effect */
+      animation: floatBubble linear infinite, fadeBubble linear infinite;
+      opacity: 100;
+    }
+
+    @keyframes floatBubble {
+      0% {
+        transform: translateY(0) translateX(0);
+      }
+      50% {
+        transform: translateY(-20px) translateX(20px);
+      }
+      100% {
+        transform: translateY(0) translateX(0);
+      }
+    }
+
+    @keyframes fadeBubble {
+      0%, 100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="bubble-container">
+  <!-- Generate bubbles dynamically using JavaScript or create them manually -->
+  <div class="bubble" style="width: 20px; height: 20px; top: 30%; left: 20%;"></div>
+  <div class="bubble" style="width: 15px; height: 15px; top: 50%; left: 70%;"></div>
+  <div class="bubble" style="width: 25px; height: 25px; top: 80%; left: 40%;"></div>
+  <!-- Add more bubbles as needed -->
+</div>
+
+<!-- Your HTML content goes here -->
+
+</body>
+</html>

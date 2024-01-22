@@ -12,8 +12,8 @@ function isDarkMode() {
     }
 }
 
-dcolors = ['#3C486B','#F0F0F0','#F9D949','#F45050']
-lcolors = ['#F0EB8D','#2D2727','#413543','#8F43EE']
+dcolors = ['60,72,107','240,240,240','249,217,73','244,80,80']
+lcolors = ['240,235,141','45,39,39','65,53,67','143,67,238']
 
 function darkModeToggle() {
     if(isDarkMode()) {
