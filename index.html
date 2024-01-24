@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div class="bg"></div>
+    <div id="bg" class="bg"></div>
     <div class="scrollbar scrollbar-primary">
         <div class="force-overflow"></div>
     </div>
@@ -33,30 +33,29 @@
                 Ethan Oh
             </div>
             <hr class="title-spacer">
-            <div class="container about">
+            <div id="headshot" class="container about">
                 <div class="item">
                     <img class="headshot" src="media/me/Headshot.jpg">
                 </div>
-                <div class="item title">
+                <div class="item title2">
                     cellist and engineer
                     
-                    <div class="item subtitle">
+                    <div class="item subtitle2">
                         <i>studying at Johns Hopkins University</i>
                     </div>
                 </div>
+                <hr class="spacer">
             </div>
 
-            <hr class="spacer">
-
-            <div class="container projects">
+            <div id="projects" class="container projects">
                 <div class="row">
-                    <div class="item title">
+                    <div class="item title1">
                         projects
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 grid-item">
-                        <a href="pages/TML.html"><img src="media/TML/TurboGrid.png" alt="Turbopump Design"></a>
+                        <img style="cursor:pointer;" onclick="openContent('TML')" src="media/TML/TurboGrid.png" alt="Turbopump Design">
                         <div class="overlay">
                             <div class="item dark-title">
                                 <i>Turbomachinery Research</i>
@@ -67,7 +66,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 grid-item">
-                        <a href="pages/spider.html"><img src="media/Spider/Robot.jpg" alt="Spider Robot"></a>
+                        <img style="cursor:pointer;" onclick="openContent('spider')" src="media/Spider/Robot.jpg" alt="Spider Robot">
                         <div class="overlay">
                             <div class="item dark-title">
                                 <i>Spider Robot Research</i>
@@ -78,7 +77,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 grid-item">
-                        <a href="equalizer.html"><img src="media/Equalizer/Circuit.jpg" alt="Three-band Equalizer"></a>
+                        <img style="cursor:pointer;" onclick="openContent('equalizer')" src="media/Equalizer/Circuit.jpg" alt="Three-band Equalizer">
                         <div class="overlay">
                             <div class="item dark-title">
                                 <i>Three-band Equalizer</i>
@@ -91,8 +90,8 @@
                     </div>
                 
                     <div class="row">
-                    <div class="col-md-4 grid-item">
-                        <a href="vacuum.html"><img src="media/Vacuum/Vacuum.png" alt="Reverse Engineering a Vacuum Cleaner"></a>
+                    <div onclick="openContent('vacuum')" class="col-md-4 grid-item">
+                        <img style="cursor:pointer;" src="media/Vacuum/Vacuum.png" alt="Reverse Engineering a Vacuum Cleaner">
                         <div class="overlay">
                             <div class="item dark-title">
                                 <i>Reverse Engineering a Vacuum Cleaner</i>
@@ -104,7 +103,7 @@
                     </div>
 
                     <div class="col-md-4 grid-item">
-                        <a href="cable.html"><img src="media/Cable/Robot0.png" alt="Cable Robot Research"></a>
+                        <img style="cursor:pointer;" onclick="openContent('cable')" src="media/Cable/Robot0.png" alt="Cable Robot Research">
                         <div class="overlay">
                             <div class="item dark-title">
                                 <i>Prototyping a Cable Robot</i>
@@ -115,7 +114,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 grid-item">
-                        <a href="cubesat.html"><img src="media/MEI/CubeSat.JPG" alt="CubeSat"></a>
+                        <img style="cursor:pointer;" onclick="openContent('cubesat')" src="media/MEI/CubeSat.JPG" alt="CubeSat">
                         <div class="overlay">
                             <div class="item dark-title">
                                 <i>Launch of Crosslinked CubeSat Pair</i>
@@ -126,7 +125,9 @@
                         </div>
                     </div>
                 </div>
+            
                 <div class="info-box" id="infoBox"></div>
+
                 <script>
                     $(document).ready(function() {
                         $('.grid-item').hover(
@@ -148,8 +149,38 @@
                 </script>
                 
             </div>
+
+            <div id="details" class="details-container">
+                <div class="back-container">
+                    <button class="backButton" onclick="closeContent()"><i style="color: rgb(var(--fill)); "class="bi bi-arrow-left"></i></button>
+                </div>
+                <div class="content">
+                    <!-- <div class="content-bg"></div> -->
+                    <div id="TML" class="content-container">
+                        <div class="article-title">
+                            <div class="title1">Turbomachinery Research</div>
+                            <div class="subtitle2">Seoul National University | Seoul, South Korea | Oct. 2022 - Jun. 2023</div>
+                        </div>
+                        <div class="article-image">
+                            <img src="media/TML/Lab.jpg" alt="Laboratory">
+                            <div class="caption"><i>workstation at the Turbomachinery Lab (TML) at Seoul National University</i></div>
+                        </div>
+                        <div class="paragraph">
+                            Collaborated with rocket startup company Perigee to develop and optimize turbopump design. 
+                            Analyze liquid oxygen pump impeller/inducer designs through ANSYS CFD simulations to reduce cavitation.
+                        </div>
+                    </div>
+                    <div id="spider"></div>
+                    <div id="equalizer"></div>
+                    <div id="vacuum"></div>
+                    <div id="cable"></div>
+                    <div id="cubesat"></div>
+                </div>
+            </div>
+
         </div>
     </div>
+
     <hr class="spacer">
 </body>
 
