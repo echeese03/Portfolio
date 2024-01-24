@@ -68,6 +68,8 @@ function openContent(id) {
     content.style.setProperty('visibility', 'visible');
     content.style.setProperty('opacity', '100');
     content.style.setProperty('height', 'auto');
+    
+    window.scrollTo(0, 0);
 }
 
 function closeContent() {
@@ -96,4 +98,6 @@ function closeContent() {
     headshot.style.setProperty('visibility', 'visible');
     headshot.style.setProperty('opacity', '100');
     headshot.style.setProperty('height', 'auto');
+
+    window.scrollTo(0, 0);
 }
