@@ -34,11 +34,16 @@
             </div>
             <hr class="title-spacer">
             <div id="headshot" class="container about">
-                <div class="item">
-                    <img class="headshot" src="media/me/Headshot.jpg">
+                <div class="item scene">
+                    <div id="coin" class="coin">
+                        <div class="front"><img class="headshot" onclick="bio()" src="media/me/Headshot.jpg"></div>
+                        <div class="back" onclick="bio()">
+                            ETHAN OH is a
+                        </div>
+                    </div>
                 </div>
                 <div class="item title2">
-                    cellist and engineer
+                    <div class="link" onclick="toMusic()">cellist</div> and <div class="link" onclick="toEng()">engineer</div>
                     
                     <div class="item subtitle2">
                         <i>studying at Johns Hopkins University</i>
@@ -90,8 +95,8 @@
                     </div>
                 
                     <div class="row">
-                    <div onclick="openContent('vacuum')" class="col-md-4 grid-item">
-                        <img style="cursor:pointer;" src="media/Vacuum/Vacuum.png" alt="Reverse Engineering a Vacuum Cleaner">
+                    <div class="col-md-4 grid-item">
+                        <img style="cursor:pointer;" onclick="openContent('vacuum')" src="media/Vacuum/Vacuum.png" alt="Reverse Engineering a Vacuum Cleaner">
                         <div class="overlay">
                             <div class="item dark-title">
                                 <i>Reverse Engineering a Vacuum Cleaner</i>
@@ -150,16 +155,120 @@
                 
             </div>
 
+            <div id="media" class="container media">
+                <div class="row">
+                    <div class="item title1">
+                        media
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 grid-item">
+                        <img style="cursor:pointer;" onclick="openContent('passacaglia')" src="http://img.youtube.com/vi/x8-jSGZ8-1c/0.jpg" alt="Passacaglia for Two Cellos">
+                        <div class="overlay">
+                            <div class="item dark-title">
+                                <i>Handel/Halvorsen Passacaglia</i>
+                            </div>
+                        </div>
+                        <div class="info">
+                            asdkjasdkjsahdk
+                        </div>
+                    </div>
+                    <div class="col-md-4 grid-item">
+                        <img style="cursor:pointer;" onclick="openContent('schumann')" src="http://img.youtube.com/vi/v6rdtxdJIcA/0.jpg" alt="Schumann Cello Concerto">
+                        <div class="overlay">
+                            <div class="item dark-title">
+                                <i>Schumann Cello Concerto in A minor</i>
+                            </div>
+                        </div>
+                        <div class="info">
+                            asdkjasdkjsahdk
+                        </div>
+                    </div>
+                    <div class="col-md-4 grid-item">
+                        <img style="cursor:pointer;" onclick="openContent('saintsaens')" src="http://img.youtube.com/vi/GsZcpESAODk/0.jpg" alt="Saint Saens Cello Concerto">
+                        <div class="overlay">
+                            <div class="item dark-title">
+                                <i>Saint Saens Cello Concerto No. 1 in A minor</i>
+                            </div>
+                        </div>
+                        <div class="info">
+                            asdkjasdkjsahdk
+                        </div>
+                    </div>
+                    </div>
+                
+                    <div class="row">
+                    <div class="col-md-4 grid-item">
+                        <img style="cursor:pointer;" onclick="openContent('dvorak')" src="http://img.youtube.com/vi/v-HRbjQgwQM/0.jpg" alt="Dvorak Cello Concerto">
+                        <div class="overlay">
+                            <div class="item dark-title">
+                                <i>Dvorak Cello Concerto in B minor</i>
+                            </div>
+                        </div>
+                        <div class="info">
+                            asdkjasdkjsahdk
+                        </div>
+                    </div>
+                    <div class="col-md-4 grid-item">
+                        <img style="cursor:pointer;" onclick="openContent('suite3prelude')" src="http://img.youtube.com/vi/QRwYKVux_XY/0.jpg" alt="Bach Suite 3 Prelude">
+                        <div class="overlay">
+                            <div class="item dark-title">
+                                <i>Bach Cello Suite No. 3 in C major, Prelude</i>
+                            </div>
+                        </div>
+                        <div class="info">
+                            asdkjasdkjsahdk
+                        </div>
+                    </div>
+                    <div class="col-md-4 grid-item">
+                        <img style="cursor:pointer;" onclick="openContent('suite3sarabande')" src="http://img.youtube.com/vi/GsZcpESAODk/0.jpg" alt="Bach Suite 3 Sarabande">
+                        <div class="overlay">
+                            <div class="item dark-title">
+                                <i>Bach Cello Suite No. 3 in C major, Sarabande</i>
+                            </div>
+                        </div>
+                        <div class="info">
+                            asdkjasdkjsahdk
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="info-box" id="infoBox"></div>
+
+                <script>
+                    $(document).ready(function() {
+                        $('.grid-item').hover(
+                            function() {
+                            var linkText = $(this).find('.info').text();
+                            $('#infoBox').text(linkText).show();
+                            },
+                            function() {
+                            $('#infoBox').hide();
+                            }
+                        );
+                
+                        $('.grid-item').mousemove(function(e) {
+                            var mouseX = e.pageX + 10;
+                            var mouseY = e.pageY + 10;
+                            $('#infoBox').css({ top: mouseY, left: mouseX });
+                        });
+                    });
+                </script>
+                
+            </div>
+
             <div id="details" class="details-container">
                 <div class="back-container">
-                    <button class="backButton" onclick="closeContent()"><i style="color: rgb(var(--fill)); "class="bi bi-arrow-left"></i></button>
+                    <button id="backEng" class="backEng" onclick="closeContent()"><i style="color: rgb(var(--fill)); "class="bi bi-arrow-left arrowEng"></i></button>
+                    <button id="backMed" class="backMed" onclick="closeMedia()"><i style="color: rgb(var(--fill)); "class="bi bi-arrow-left arrowMed"></i></button>
                 </div>
                 <div class="content">
                     <!-- <div class="content-bg"></div> -->
                     <div id="TML" class="content-container">
                         <div class="article-title">
                             <div class="title1">Turbomachinery Research</div>
-                            <div class="subtitle2">Seoul National University | Seoul, South Korea | Oct. 2022 - Jun. 2023</div>
+                            <div class="subtitle2"><em>Seoul National University | Seoul, South Korea | Oct. 2022 - Jun. 2023</em></div>
+                            <hr class="article-spacer">
                         </div>
                         <div class="article-image">
                             <img src="media/TML/Lab.jpg" alt="Laboratory">
@@ -175,6 +284,72 @@
                     <div id="vacuum"></div>
                     <div id="cable"></div>
                     <div id="cubesat"></div>
+                    <div id="passacaglia" class="content-container">
+                        <div class="article-title">
+                            <div class="title1">Passacaglia (arr. for two cellos)</div>
+                            <div class="subtitle2">Handel/Halvorsen</div>
+                            <div class="subtitle2"><em>Griswold Hall, Peabody Conservatory | Baltimore MD, USA | May 2024</em></div>
+                            <hr class="article-spacer">
+                            <div class="paragraph">Performed by Gloria Lee and Ethan Oh</div>
+                        </div>
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/x8-jSGZ8-1c" allowfullscreen></iframe>
+                        </div>
+
+                    </div>
+                    <div id="schumann" class="content-container">
+                        <div class="article-title">
+                            <div class="title1">Cello Concerto in A minor</div>
+                            <div class="subtitle2">Robert Schumann</div>
+                            <div class="subtitle2"><em>Kukje Art Hall | Seoul, South Korea | June 2023</em></div>
+                            <hr class="article-spacer">
+                            <div class="paragraph">with pianist Yeri Yoo</div>
+                        </div>
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/v6rdtxdJIcA" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div id="saintsaens" class="content-container">
+                        <div class="article-title">
+                            <div class="title1">Cello Concerto in A minor</div>
+                            <div class="subtitle2">Robert Schumann</div>
+                            <div class="subtitle2"><em>Griswold Hall, Peabody Conservatory | Baltimore MD, USA | February 2022</em></div>
+                            <hr class="article-spacer">
+                            <!-- <div class="paragraph"></div> -->
+                        </div>
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/GsZcpESAODk" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div id="dvorak" class="content-container">
+                        <div class="article-title">
+                            <div class="title1">Cello Concerto in B minor</div>
+                            <div class="subtitle2">Antonin Dvorak</div>
+                            <div class="subtitle2"><em>Kukje Art Hall | Seoul, South Korea | August 2020</em></div>
+                            <hr class="article-spacer">
+                            <!-- <div class="paragraph"></div> -->
+                        </div>
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/v-HRbjQgwQM" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div id="suite3prelude" class="content-container">
+                        <div class="article-title">
+                            <div class="title1">Cello Suite No. 3 in C major</div>
+                            <div class="subtitle2">J.S. Bach</div>
+                            <div class="subtitle2"><em>Kukje Art Hall | Seoul, South Korea | August 2020</em></div>
+                            <hr class="article-spacer">
+                            <!-- <div class="paragraph"></div> -->
+                        </div>
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/QRwYKVux_XY" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div id="suite3sarabande" class="content-container">
+                        <div class="ratio ratio-16x9">
+                            <iframe src="https://www.youtube.com/embed/YSslFZ2JvKg" allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
 
