@@ -93,6 +93,7 @@ body {
     overflow-x: hidden;
     letter-spacing: 0.3pt;
     font-weight: 500;
+    height: auto;
 }
 
 .link {
@@ -244,6 +245,10 @@ body {
     align-items: flex-start;
     flex-direction: column;
     gap: 2px;
+    max-width: 60vw;
+    height: auto;
+    flex-wrap: nowrap;
+    
 }
 
 .item {
@@ -354,15 +359,27 @@ body {
 .info-box {
     position: absolute;
     display: none;
-    background: rgba(var(--color3), 0.8);
+    background: rgba(var(--color3), 0.9);
     color: rgb(var(--color1));
     padding: 10px;
     border-radius: 5px;
-    max-width: 20vw;
+    min-width: 20vw;
+    max-width: 30vw;
+    border-width: 2px;
+    border-color: rgb(var(--color1));
+    border-style: solid;
 }
 
 .info {
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
     display: none;
+    font-size: 14px;
+}
+
+.info-title {
+    font-size: 16px;
 }
 
 footer {
@@ -398,21 +415,33 @@ footer {
 
 .article-title {
     padding-bottom: 15px;
+    width: 100%;
+}
+
+.article-image {
+    align-items: center;
+    text-align: center;
 }
 
 .article-image img {
-    max-width: 50vw;
-    height: auto;
+    width: 80%;
+    height: 80%;
     padding-bottom: 5px;
+    
 }
 
 .caption {
     text-align: center;
     padding-bottom: 5px;
+    width: 100%;
 }
 
 .paragraph {
     padding-bottom: 5px;
+    letter-spacing: 0.4pt;
+    line-height: 1.75;
+    text-indent: 30px;
+    width: 100%;
 }
 
 .footer-icon {
