@@ -1,6 +1,6 @@
 // Get the root element
 var r = document.querySelector(':root');
-var contents = ['TML','spider','equalizer','vacuum','cable','cubesat',
+var contents = ['TML','spider','equalizer','vacuum','cable','cubesat','Rover','RDKDC','engine','RSA',
 'passacaglia','dvorak','schumann','saintsaens','suite3prelude','suite3sarabande'];
 // Create a function for getting a variable value
 function isDarkMode() {

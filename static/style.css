@@ -246,10 +246,9 @@ body {
     align-items: flex-start;
     flex-direction: column;
     gap: 2px;
-    max-width: 60vw;
+    width: 60vw;
     height: auto;
     flex-wrap: nowrap;
-    
 }
 
 .item {
@@ -328,7 +327,8 @@ body {
 
 .grid-item img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     transition: transform 0.2s ease;
     border-radius: 15px;
 }
@@ -365,7 +365,7 @@ body {
     padding: 10px;
     border-radius: 5px;
     min-width: 20vw;
-    max-width: 30vw;
+    max-width: 32vw;
     border-width: 2px;
     border-color: rgb(var(--color1));
     border-style: solid;
@@ -422,6 +422,7 @@ footer {
 .article-image {
     align-items: center;
     text-align: center;
+    width: 100%;
 }
 
 .article-image img {
@@ -433,7 +434,7 @@ footer {
 
 .caption {
     text-align: center;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
     width: 100%;
 }
 
